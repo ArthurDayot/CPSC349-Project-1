@@ -1,0 +1,87 @@
+header, footer{
+    background-color: #7AD7F0;
+    text-align: left;
+}
+
+header h1{
+    display: inline-block;
+    color: #ffffff;
+    font-size: 24pt;
+    text-align: left;
+    font-family: arial, sans-serif;
+    vertical-align: top;
+}
+
+nav{
+    background-color: #7AD7F0;
+    text-align: left;
+}
+
+.menuitem{
+    display: inline-block;
+    color: #ffffff;
+    font-size: 12pt;
+    text-align: center;
+    font-family: arial, sans-serif;
+    font-weight: bold;
+    vertical-align: top;
+    padding: 5px;
+    width: 150px;
+}
+
+.menutext{
+    vertical-align: top;
+}
+
+section h2{
+    color: #000000;
+    font-size: 16pt;
+    text-align: justify;
+    font-family: arial, sans-serif;
+}
+
+section p{
+    color: #000000;
+    font-size: 12pt;
+    text-align: justify;
+    font-family: arial, sans-serif;
+}
+
+footer p{
+    color: #ffffff;
+    font-size: 10pt;
+    text-align: center;
+    font-family: arial, sans-serif;
+    font-weight: bold;
+    padding: 6px;
+}
+
+a:link, a:visited, a:active{
+    color: #ffffff;
+    text-decoration: none;
+}
+
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  text-align: center;
+  font-family: arial, sans-serif;
+}
+
+th{
+  font-size: 15pt;
+}
+
+table#searching, table#searching td{
+  text-align: left;
+  padding-left: 10px;
+  border: none;
+}
+
+#search{
+  font-size: 12pt;
+  font-family: arial, sans-serif;
+  width: 80px;
+  height: 30px;
+  margin-left: 150px;
+}

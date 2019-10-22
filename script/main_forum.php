@@ -18,17 +18,14 @@
         <section>
             <?php 
 
-            $host= "localhost";
-            $username= "";
-            $password= "";
-            $db_name="test";
-            $tbl_name="forum_question";//CHANGE ACCORDING TO JOHNS DB
+            include('../connect.php');
+            $tbl_name="posts";//CHANGE ACCORDING TO JOHNS DB
 
-            mysqli_connect("$host", "$username", "$password") or die("cannot connect");
-            mysqli_select_db("$db_name") or die("cannot select DB");
-            $sql= "SELECT" * FROM $tbl_name ORDER BY id DESC; //order results by descending id
+            // mysqli_connect("$host", "$username", "$password", "8889") or die("cannot connect");
+            // mysqli_select_db("$db_name") or die("cannot select DB");
+            $sql= "SELECT * FROM $tbl_name ORDER BY PostID DESC"; //order results by descending id
 
-            $result= mysqli_query($sql);
+            $result= mysqli_query($connection, $sql);
              ?>
 
             <table width="90%" border="0" align="center" cellpadding="3" cellspacing="1" bgcolor="#CCCCCC">
@@ -47,20 +44,20 @@
               while ($rows = mysqli_fetch_array($result)) {
                ?>
                <tr>
-                 <td bgcolor="#FFFFFF"><? echo $rows['id']; ?></td>
-                 <td bgcolor="#FFFFFF"><a href="view_topic.php?id=<? echo $rows['id']; ?>"><? echo $rows['topic']; ?></a><BR></td>
+                 <td bgcolor="#FFFFFF"><? echo $rows['PostID']; ?></td>
+                 <td bgcolor="#FFFFFF"><a href="view_topic.php?id=<? echo $rows['PostID']; ?>"><? echo $rows['PostTopic']; ?></a><BR></td>
                  <td align="center" bgcolor="#FFFFFF"><? echo $rows['view']; ?></td>
                  <td align="center" bgcolor="#FFFFFF"><? echo $rows['reply']; ?></td>
-                 <td align="center" bgcolor="#FFFFFF"><? echo $rows['datetime']; ?></td>
+                 <td align="center" bgcolor="#FFFFFF"><? echo $rows['DatePosted']; ?></td>
                </tr>
 
                <?php 
              }
-             mysqli_close();
+             mysqli_close($connection);
                 ?>
              
              <tr>
-               <td colspan="5" align="right" bgcolor="#E6E6E6"><a href="create_topic.php"><strong>Create New Topic</strong></a></td>
+               <td colspan="5" align="right" bgcolor="#000000"><a href="create_topic.php"><strong>Create New Topic</strong></a></td>
              </tr>
             </table>
                

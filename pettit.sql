@@ -70,9 +70,9 @@ CREATE TABLE posts (
 CREATE TABLE users (
   FirstName varchar(20) NOT NULL,
   LastName varchar(20) NOT NULL,
+  UserName varchar(20) NOT NULL,
   EmailAddress varchar(30) NOT NULL,
   Password varchar(40) NOT NULL
-  -- UserName varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --

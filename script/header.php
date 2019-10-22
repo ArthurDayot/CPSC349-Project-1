@@ -33,23 +33,9 @@
 
 
             <div class="menuitem">
-                <a href="view.php">
+                <a href="main_forum.php">
                     <img src="../img/bone.png" alt="" height="30" width="30" />
                     <span class="menutext">Forum</span>
-                </a>
-            </div>
-
-            <div class="menuitem">
-                <a href="update.php">
-                    <img src="../img/bone.png" alt="" height="30" width="30" />
-                    <span class="menutext">Create a Post</span>
-                </a>
-            </div>
-
-            <div class="menuitem">
-                <a href="search.php">
-                    <img src="../img/bone.png" alt="" height="30" width="30" />
-                    <span class="menutext">Search</span>
                 </a>
             </div>
 

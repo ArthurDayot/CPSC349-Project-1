@@ -31,7 +31,7 @@
                     $email = $_POST["email"];
                     $password = md5($_POST["pass"]);
 
-                    $result=$connection->query("SELECT * FROM user WHERE EmailAddress='$email' AND Password='$password'");
+                    $result=$connection->query("SELECT * FROM users WHERE EmailAddress='$email' AND Password='$password'");
 
                     //User exists, with correct password hash
                     if($result->num_rows!=0){

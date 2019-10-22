@@ -16,24 +16,14 @@
         <section>
                <?php 
 
-               $host= "localhost";
-               $username= "";
-               $password= "";
-               $db_name= "pettit";
-               $tbl_posts= "posts";
-               $tbl_users= "users";
-
-               mysqli_connect("$host", "$username", "$password") or die("cannot connect");
-               mysqli_select_db("$db_name") or die("cannot select DB");
-
                //Get ID sent from the address bar
                $id= $_GET['PostID'];
                $sql= "SELECT * FROM $tbl_posts WHERE PostID= '$PostID'";
-               $result= mysqli_query($sql);
+               $result= mysqli_query($connection, $sql);
                $rows= mysqli_fetch_array($result);
 
-               $sql_users= "SELECT * FROM $tbl_users WHERE ID= '$ID'";
-               $result2= mysqli_query($sql2)
+               $sql_users= "SELECT * FROM $tbl_users WHERE ID= '$id'";
+               $result2= mysqli_query($connection, $sql2)
                $rows_users= mysqli_fetch_array($result2);
                 ?>
 
@@ -62,8 +52,8 @@
 
                 <?php 
                 $tbl_comments= "comments";
-                $sql_comments= "SELECT * FROM $tbl_comments WHERE comment_id= '$comment_id'";
-                $result3= mysqli_query($sql_comments);
+                $sql_comments= "SELECT * FROM $tbl_comments WHERE comment_id= '$id'";
+                $result3= mysqli_query($connection, $sql_comments);
 
                 while($rows_comments = mysqli_fetch_array($result3)){
                  ?>
@@ -109,20 +99,20 @@
               }
 
               $sql2= "SELECT view FROM $tbl_posts WHERE id= '$PostID'";
-              $result4= mysqli_query($sql2);
+              $result4= mysqli_query($connection, $sql2);
               $rows= mysqli_fetch_array($result4);
               $view= $rows['view'];
 
               if (empty($view)) {
                 $view= 1;
                 $sql3= "INSERT INTO $tbl_posts(view) VALUES('$view') WHERE id='$PostID'";
-                $result4= mysqli_query($sql3);
+                $result4= mysqli_query($connection, $sql3);
               }
 
               $addview= $view + 1;
               $sql4= "UPDATE $tbl_posts SET view= '$addview' WHERE id='$PostID'";
-              $result5= mysqli_query($sql5);
-              mysqli_close();
+              $result5= mysqli_query($connection, $sql5);
+              mysqli_close($connection);
               ?>
 
               <BR>

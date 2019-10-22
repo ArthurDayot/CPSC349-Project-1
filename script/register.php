@@ -17,6 +17,7 @@
                 <table id="searching">
                     <tr><td>First Name</td><td align=center><input type="text" name="firstN"></td></tr>
                     <tr><td>Last Name</td><td align=center><input type="text" name="lastN"></td>
+                    <tr><td>User Name</td><td align=center><input type="text" name="userName"></td>
                     <tr><td>E-mail</td><td align=center><input type="text" name="mail"></td>
                     <tr><td>Password</td><td align=center><input type="password" name="password"></td>
                 </table>
@@ -29,10 +30,11 @@
                 if(isset($_REQUEST['reg_btn'])){
                     $first = $_POST["firstN"];
                     $last = $_POST["lastN"];
+                    $user = $_POST["userName"];
                     $email = $_POST["mail"];
                     $password = md5($_POST["password"]);
 
-                    $result=$connection->query("INSERT INTO users VALUES('$first', '$last', '$email', '$password')");
+                    $result=$connection->query("INSERT INTO users VALUES('$first', '$last', '$user', '$email', '$password')");
 
                     if($result){
                         $_SESSION['user_id'] = $email;

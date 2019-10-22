@@ -19,24 +19,18 @@
             <?php
                 include('../connect.php');
 
-               $host= "localhost";
-               $username="";
-               $password="";
-               $db_name= "pettit";
                $tbl_posts= "posts";
 
-               mysqli_connect("$host", "$username", "$password")or die("cannot connect");
-               mysqli_select_db("$db_name")or die("cannot select DB");
+               // mysqli_connect("$host", "$username", "$password")or die("cannot connect");
+               // mysqli_select_db("$db_name")or die("cannot select DB");
 
-               $topic=$_POST['topic'];
-               $detail=$_POST['detail'];
-               $name=$_POST['name'];
-               $email=$_POST['email'];
+               $topic=$_POST['detail'];
+               $detail=$_POST['topic'];
 
                $datetime=date("d/m/y h:i:s");
 
-               $sql="INSERT INTO $tbl_posts(topic, detail, name, email, datetime)VALUES('$topic', '$detail', '$name', '$email', '$datetime')";
-               $result=mysqli_query($sql);
+               $sql="INSERT INTO $tbl_posts(PostContent, PostTopic, DatePosted)VALUES('$detail', '$topic','$datetime')";
+               $result=mysqli_query($connection, $sql);
 
                if($result){
                echo "Successful<BR>";
@@ -45,7 +39,7 @@
                else {
                echo "ERROR";
                }
-               mysql_close();
+               mysqli_close($connection);
             ?>
                
         </section>

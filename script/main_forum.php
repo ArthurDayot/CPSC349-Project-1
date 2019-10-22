@@ -16,20 +16,21 @@
     <!-- need to change to new table -->
     <body>
         <section>
-            <?php 
+            <?php
 
             include('../connect.php');
             $tbl_name="posts";//CHANGE ACCORDING TO JOHNS DB
 
             // mysqli_connect("$host", "$username", "$password", "8889") or die("cannot connect");
             // mysqli_select_db("$db_name") or die("cannot select DB");
-            $sql= "SELECT * FROM $tbl_name ORDER BY PostID DESC"; //order results by descending id
+            //$sql= "SELECT * FROM $tbl_name ORDER BY PostID DESC"; //order results by descending id
+            $sql= "SELECT PostID, PostTopic, view, reply, DatePosted FROM $tbl_name ORDER BY PostID DESC";
 
             $result= mysqli_query($connection, $sql);
              ?>
 
             <table width="90%" border="0" align="center" cellpadding="3" cellspacing="1" bgcolor="#CCCCCC">
-              
+
               <tr>
                 <td width="6%" align="center" bgcolor="#E6E6E6"><strong></strong>#</td>
                 <td width="53%" align="center" bgcolor="#E6E6E6"><strong>Topic</strong></td>
@@ -37,9 +38,9 @@
                 <td width="13%" align="center" bgcolor="#E6E6E6"><strong>Replies</strong></td>
                 <td width="13%" align="center" bgcolor="#E6E6E6"><strong>Date/Time</strong></td>
               </tr>
-              
-              <?php 
-               
+
+              <?php
+
                //table row loop
               while ($rows = mysqli_fetch_array($result)) {
                ?>
@@ -51,16 +52,16 @@
                  <td align="center" bgcolor="#FFFFFF"><? echo $rows['DatePosted']; ?></td>
                </tr>
 
-               <?php 
+               <?php
              }
              mysqli_close($connection);
                 ?>
-             
+
              <tr>
                <td colspan="5" align="right" bgcolor="#000000"><a href="create_topic.php"><strong>Create New Topic</strong></a></td>
              </tr>
             </table>
-               
+
         </section>
     </body>
 

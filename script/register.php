@@ -33,13 +33,16 @@
                     $user = $_POST["userName"];
                     $email = $_POST["mail"];
                     $password = md5($_POST["password"]);
-
-                    $result=$connection->query("INSERT INTO users VALUES('$first', '$last', '$user', '$email', '$password')");
-
+                    // $password = $_POST["password"];
+                    $result=$connection->query("INSERT INTO users (FirstName, LastName, UserName, EmailAddress, Password) VALUES('$first', '$last', '$user', '$email', '$password')");
                     if($result){
-                        $_SESSION['user_id'] = $email;
+                        // $_SESSION['user_id'] = $email;
+                        $_SESSION['user_id'] = $connection->query("SELECT UserID FROM users WHERE $email = EmailAddress");
                         header("Location: home.php");
+                    } else {
+                    echo "ERROR";
                     }
+
                 }
             ?>
         </section>

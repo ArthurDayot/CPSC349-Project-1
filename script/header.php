@@ -6,7 +6,7 @@
     </head>
 
     <body>
-        <header>
+        <header><center>
               <img src="../img/Dogs.png" alt="Dogs Icon" height="80" width="80" />
                 <img src="../img/Dogs.png" alt="Dogs Icon" height="80" width="80" />
                   <img src="../img/Dogs.png" alt="Dogs Icon" height="80" width="80" />
@@ -20,7 +20,7 @@
                   <img src="../img/Dogs.png" alt="Dogs Icon" height="80" width="80" />
                   <img src="../img/Dogs.png" alt="Dogs Icon" height="80" width="80" />
                   <img src="../img/Dogs.png" alt="Dogs Icon" height="80" width="80" />
-        </header>
+        </center></header>
 
         <!-- menu -->
         <nav>

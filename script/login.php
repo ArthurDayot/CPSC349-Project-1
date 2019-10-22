@@ -30,12 +30,13 @@
                 if(isset($_REQUEST['submit_btn'])){
                     $email = $_POST["email"];
                     $password = md5($_POST["pass"]);
+                    // $password = $_POST["pass"];
 
                     $result=$connection->query("SELECT * FROM users WHERE EmailAddress='$email' AND Password='$password'");
 
                     //User exists, with correct password hash
                     if($result->num_rows!=0){
-                        $_SESSION['user_id']=$email;
+                        $_SESSION['user_id']=$connection->query("SELECT UserID FROM users WHERE EmailAddress='$email' AND Password='$password'");
                         header("Location: home.php");
                     }
 

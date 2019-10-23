@@ -14,7 +14,10 @@
 
     <body>
         <section>
-               <?php 
+               <?php
+               include('../connect.php');
+
+               $tbl_users = "posts";
 
                //Get ID sent from the address bar
                $id= $_GET['PostID'];
@@ -22,12 +25,12 @@
                $result= mysqli_query($connection, $sql);
                $rows= mysqli_fetch_array($result);
 
-               $sql_users= "SELECT * FROM $tbl_users WHERE ID= '$id'";
-               $result2= mysqli_query($connection, $sql2)
+               $sql_users= "SELECT * FROM $tbl_users WHERE UserID= '$id'";
+               $result2= mysqli_query($connection, $sql_users)
                $rows_users= mysqli_fetch_array($result2);
                 ?>
 
-                <table width="400" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#CCCCCC">
+                <table width="400" border="0" align="center" cellpadding="0" cellspacing="100" bgcolor="#CCCCCC">
                   <tr>
                     <td><table width="100%" border="0" cellpadding="0" cellspacing="1" bgcolor="#FFFFFF">
                       <tr>
@@ -50,7 +53,7 @@
                 </table>
                 <BR>
 
-                <?php 
+                <?php
                 $tbl_comments= "comments";
                 $sql_comments= "SELECT * FROM $tbl_comments WHERE comment_id= '$id'";
                 $result3= mysqli_query($connection, $sql_comments);
@@ -95,7 +98,7 @@
                  </table>
                  <BR>
 
-              <?php  
+              <?php
               }
 
               $sql2= "SELECT view FROM $tbl_posts WHERE id= '$PostID'";

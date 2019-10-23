@@ -42,15 +42,20 @@
               <?php
 
                //table row loop
-              while ($rows = mysqli_fetch_array($result)) {
+              //  while($row = $result->fetch_assoc()) {
+              //    echo "PostID: " . $row["PostID"]. " - PostTopic: " . $row["PostTopic"]. " - view: " . $row["view"]. " - reply: " . $row["reply"]. " - DatePosted: " . $row["DatePosted"]. "<br>";
+              // }
+
+              while ($row = $result->fetch_assoc()) {
                ?>
-               <tr>
-                 <td bgcolor="#FFFFFF"><? echo $rows['PostID']; ?></td>
-                 <td bgcolor="#FFFFFF"><a href="view_topic.php?id=<? echo $rows['PostID']; ?>"><? echo $rows['PostTopic']; ?></a><BR></td>
-                 <td align="center" bgcolor="#FFFFFF"><? echo $rows['view']; ?></td>
-                 <td align="center" bgcolor="#FFFFFF"><? echo $rows['reply']; ?></td>
-                 <td align="center" bgcolor="#FFFFFF"><? echo $rows['DatePosted']; ?></td>
-               </tr>
+                              <tr>
+                                <td><?php echo htmlspecialchars($row['PostID'])?></td>
+                                <!-- <td><?php //echo htmlspecialchars($row['PostTopic'])?></td> -->
+                                <td><a href="view_topic2.php?id=<?php echo htmlspecialchars($row['PostID']) ?>"><?php echo htmlspecialchars($row['PostTopic']); ?></td>
+                                <td><?php echo htmlspecialchars($row['view'])?></td>
+                                <td><?php echo htmlspecialchars($row['reply'])?></td>
+                                <td><?php echo htmlspecialchars($row['DatePosted'])?></td>
+                              </tr>
 
                <?php
              }

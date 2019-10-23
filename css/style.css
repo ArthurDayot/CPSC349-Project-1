@@ -1,6 +1,15 @@
-header, footer{
+header{
     background-color: #7AD7F0;
     text-align: left;
+}
+
+footer{
+   background-color: #7AD7F0;
+   text-align: left;
+   position: fixed;
+   bottom: 0px;
+   left: 0px;
+   width: 100%;
 }
 
 header h1{
@@ -11,6 +20,7 @@ header h1{
     font-family: arial, sans-serif;
     vertical-align: top;
 }
+
 
 nav{
     background-color: #7AD7F0;
